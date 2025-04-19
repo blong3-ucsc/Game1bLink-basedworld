@@ -1,0 +1,175 @@
+{
+    "Title": "Burger Quest",
+    "Credits": "Created by Bryan Long",
+    "InitialLocation": "asleep",
+    "Locations": {
+        "asleep": {
+            "Body": "You wake up in a dark room, headache pulsating in your skull. Everything hurts. You'll never drink again. Is this room even mine? I should've drank more water. Was my bed always this soft? Is -",
+            "Choices": [
+                {
+                    "Text": "A vision, sent from the heavens, derived from its divine, infinite calculus, pierces your mind.",
+                    "Target": "divinemessage1"
+                }
+            ]
+        },
+        "divinemessage1": {
+            "Body": "It tears your consciousness asunder.",
+            "Choices": [
+                {
+                    "Text": "It casts your mortal dreams and thoughts into the space between lines.",
+                    "Target": "divinemessage2"
+                }
+            ]
+        },
+        "divinemessage2": {
+            "Body": "It dismantles your ego and subsumes it",
+            "Choices": [
+                {
+                    "Text": "You understand.",
+                    "Target": "revelation"
+                }
+            ]
+        },
+        "revelation": {
+            "Body": "You must get a burger from Burger Express.",
+            "Choices": [
+                {
+                    "Text": "Your consciosness reconstructs itself, neurons snapping together. You turn on your lights.",
+                    "Target": "room"
+                }
+            ]
+        },
+        "room": {
+            "Body": "It's a mess, clothes overspilling the laundry basket and onto your bed; various books, papers and drink piles cozy up to each other by the warmth of the computer. Thankfully, it is your room." ,
+            "Choices": [
+                {
+                    "Text": "Check Nightstand",
+                    "Target": "nightstand"
+                },
+                {
+                    "Text": "Check Closet",
+                    "Target": "closet"
+                },
+                {
+                    "Text": ":Look out the window",
+                    "Target": "window"
+                },
+                {
+                    "Text": "Leave",
+                    "Target": "parkinglot"
+                }
+            ]
+        },
+        "nightstand": {            
+            "Body": "Your trusty nightstand, curious things are scattered about. An ash tray, 3 gum wraps, a lamp, 4 pencils, a single sheet of paper and your keys.",
+            "Choices": [
+                {
+                    "Text": "Grab your keys",
+                    "Target": "grabkeys"
+                },
+                {
+                    "Text": "Back",
+                    "Target": "room"
+                }
+            ]
+        },
+        "closet": {
+            "Body": "The light from your lamp doesn't reach here",
+            "Choices": [
+                {
+                    "Text": "Back",
+                    "Target": "room"
+                }
+            ]
+        },
+        "closet1": {
+            "Body": "You use your flashlight and see 2 and a half dusty suits hung. Good times.",
+            "Choices": [
+                {
+                    "Text": "You see a bulge coming out of the suit pockets. On closer inspection, its your wallet! You haven't seen that since last night.",
+                    "Target": "grabwallet"
+                }
+            ]
+        },
+        "window": {
+            "Body": "The stars wink playfully at you. Your windowsill is dusty, you should clean that. It's gross.",
+            "Choices": [
+                {
+                    "Text": "You put your flashlight here, since it doubles as a weapon according to a youtube video you saw one time. You thought the nightstand would be too close to a potential attacker.",
+                    "Target": "grabflashlight" 
+                },
+                {
+                    "Text": "Back",
+                    "Target": "room"
+                }
+            ]
+        },
+        "parkinglot": {
+            "Body": "It's fucking cold out here. You shiver, your breath comes out like an angry dragon. It hurts a bit.",
+            "Choices": [
+                {
+                    "Text": "Get in your car",
+                    "Target": "car"
+                },
+                {
+                    "Text": "Back",
+                    "Target": "room"
+                }
+            ]
+        },
+        "car": {
+            "Body": "You car smells of mildew and whatever else old cars smell of. This is it, you can achieve divine prophecy.",
+            "Choices": [
+                {
+                    "Text": "Start your engine https://www.youtube.com/watch?v=9hMyzztXmmY",
+                    "Target": "car1"
+                },
+                {
+                    "Text": "Start your engine",
+                    "Target": "carfail"
+                },
+                {
+                    "Text": "Back",
+                    "Target": "parkinglot"
+                }
+            ]
+        },
+        "carfail": {
+            "Body": "You really forgot your car keys? Now look at yourself you directionless, pathetic, forgetful, burger-less wretch. The angels laugh like a children's orchestra.",
+            "Choices": [
+                {
+                    "Text": "You hang your head in shame",
+                    "Target": "car"
+                }
+            ]
+        },
+        "car1": {
+            "Body": "The engine screams, ripping apart gasoline to animate itself. It breathes in a constant rumble. Your body commands the car as an extension of itself and your body is an extension of the divine burger prophecy. You are the car, you are the prophecy. \n ",
+            "Choices": [
+                {
+                    "Text": "You park, it's time to do your duty.",
+                    "Target": "burgerexpress"
+                }
+            ]
+        },
+        "burgerexpress": {
+            "Body": "You arrive in the holy ground, and read out the menu instinctively (humans can't help but read), but what's the point. \n Everything knows that the best burger is the Double Triple Smashburger with pickles, ghost pepper, garlic aioli, avocado, and Mike's Hot Honey®.",
+            "Choices": [
+                {
+                    "Text": "You take out your wallet and prepare sacrifice your money like Abraham did his son.",
+                    "Target": "end"
+                },
+                {
+                    "Text": "You take out your wallet and prepare sacrifice your money like Abraham did his son.",
+                    "Target": "foolend"
+                }
+            ]
+        },
+        "foolend": {
+            "Body": "Your hand touches the nothing. A coldness shoots up your body, from your toes. Each inch of crystallization causing your heart and lungs to panic. You are forever burgerless. You collapse under the flourescent lights."
+        },
+        "end": {
+            "Body": "Your duty is done, your mind dissolves, sense by sense, thought by thought, into divine bliss."
+        }
+    }
+}
