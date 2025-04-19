@@ -1,36 +1,49 @@
 class Start extends Scene {
     create() {
-        this.engine.setTitle(this.engine.storyData.Title); // TODO: replace this text using this.engine.storyData to find the story title
+        this.engine.flags = {}
+        this.engine.setTitle(this.engine.storyData.Title);
         this.engine.addChoice("Begin the story");
+
     }
 
     handleChoice() {
-        this.engine.gotoScene(Location, this.engine.storyData.InitialLocation); // TODO: replace this text by the initial location of the story
+        this.engine.gotoScene(Location, this.engine.storyData.InitialLocation);
     }
 }
 
 class Location extends Scene {
     create(key) {
-        let locationData = this.engine.storyData.Locations[key]; // TODO: use `key` to get the data object for the current story location
-        this.engine.show(locationData.Body); // TODO: replace this text by the Body of the location data
-        if(locationData.Choices) { // TODO: check if the location has any Choices
-            for(let choice of locationData.Choices) { // TODO: loop over the location's Choices
-                if(key == "nightstand" && choice == "grabkeys" && haveKey == true) {
+        let locationData = this.engine.storyData.Locations[key];
+        let body = locationData.Body;
+        if (locationData.AltBodies) {
+            for (let alt of locationData.AltBodies) {
+                if (this.engine.flags[alt.Flag]) {
+                    body = alt.Body;
+                }
+            }
+        }
+        this.engine.show(body);
+        if (locationData.Choices) {
+            for (let choice of locationData.Choices) {
+                if (choice.DisabledBy && this.engine.flags[choice.DisabledBy]) {
+                    continue;
+                } else if (choice.EnabledBy && !this.engine.flags[choice.EnabledBy]) {
                     continue;
                 }
-                if(key == "window" && choice == "haveflashlight" && haveFlashlight == true) {
-                    continue;
-                }
-                this.engine.addChoice(choice.Text, choice); // TODO: use the Text of the choice
-                // TODO: add a useful second argument to addChoice so that the current code of handleChoice below works
+                this.engine.addChoice(choice.Text, choice);
             }
         } else {
             this.engine.addChoice("The end.")
         }
+        this.engine.actionsContainer.scrollIntoView({behavior: "smooth"});
+
     }
 
     handleChoice(choice) {
-        if(choice) {
+        if (choice) {
+            if (choice.Flag) {
+                this.engine.flags[choice.Flag] = true;
+            }
             this.engine.show("&gt; "+choice.Text);
             this.engine.gotoScene(Location, choice.Target);
         } else {
@@ -45,9 +58,5 @@ class End extends Scene {
         this.engine.show(this.engine.storyData.Credits);
     }
 }
-
-let haveKey = false;
-let haveWallet = false;
-let haveFlashlight = false;
 
 Engine.load(Start, 'myStory.json');

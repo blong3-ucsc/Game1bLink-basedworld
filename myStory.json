@@ -34,7 +34,7 @@
             "Body": "You must get a burger from Burger Express.",
             "Choices": [
                 {
-                    "Text": "Your consciosness reconstructs itself, neurons snapping together. You turn on your lights.",
+                    "Text": "Your psyche reconstructs itself, neurons snapping together. You turn on your lights.",
                     "Target": "room"
                 }
             ]
@@ -48,10 +48,16 @@
                 },
                 {
                     "Text": "Check Closet",
-                    "Target": "closet"
+                    "Target": "closet",
+                    "DisabledBy": "flashlight"
                 },
                 {
-                    "Text": ":Look out the window",
+                    "Text": "Check Closet",
+                    "Target": "closet1",
+                    "EnabledBy": "flashlight"
+                },
+                {
+                    "Text": "Look out the window",
                     "Target": "window"
                 },
                 {
@@ -62,10 +68,19 @@
         },
         "nightstand": {            
             "Body": "Your trusty nightstand, curious things are scattered about. An ash tray, 3 gum wraps, a lamp, 4 pencils, a single sheet of paper and your keys.",
+            "AltBodies": [
+                {
+                    "Flag": "keys",
+                    "Body": "Your trusty nightstand, curious things are scattered about. An ash tray, 3 gum wraps, a lamp, 4 pencils, and a single sheet of paper."
+                }
+
+            ],
             "Choices": [
                 {
                     "Text": "Grab your keys",
-                    "Target": "grabkeys"
+                    "Target": "nightstand",
+                    "Flag": "keys",
+                    "DisabledBy": "keys"
                 },
                 {
                     "Text": "Back",
@@ -74,7 +89,7 @@
             ]
         },
         "closet": {
-            "Body": "The light from your lamp doesn't reach here",
+            "Body": "The light from your lamp doesn't reach here.",
             "Choices": [
                 {
                     "Text": "Back",
@@ -87,7 +102,13 @@
             "Choices": [
                 {
                     "Text": "You see a bulge coming out of the suit pockets. On closer inspection, its your wallet! You haven't seen that since last night.",
-                    "Target": "grabwallet"
+                    "Target": "closet1",
+                    "Flag": "wallet",
+                    "DisabledBy": "wallet"
+                },
+                {
+                    "Text": "Back",
+                    "Target": "room"
                 }
             ]
         },
@@ -96,7 +117,9 @@
             "Choices": [
                 {
                     "Text": "You put your flashlight here, since it doubles as a weapon according to a youtube video you saw one time. You thought the nightstand would be too close to a potential attacker.",
-                    "Target": "grabflashlight" 
+                    "Target": "window",
+                    "Flag": "flashlight",
+                    "DisabledBy": "flashlight"
                 },
                 {
                     "Text": "Back",
@@ -105,7 +128,7 @@
             ]
         },
         "parkinglot": {
-            "Body": "It's fucking cold out here. You shiver, your breath comes out like an angry dragon. It hurts a bit.",
+            "Body": "It's fucking cold out here. You shiver, your breath comes out like a dragon. It hurts.",
             "Choices": [
                 {
                     "Text": "Get in your car",
@@ -122,11 +145,13 @@
             "Choices": [
                 {
                     "Text": "Start your engine https://www.youtube.com/watch?v=9hMyzztXmmY",
-                    "Target": "car1"
+                    "Target": "car1",
+                    "EnabledBy": "keys"
                 },
                 {
                     "Text": "Start your engine",
-                    "Target": "carfail"
+                    "Target": "carfail",
+                    "DisabledBy": "keys"
                 },
                 {
                     "Text": "Back",
@@ -157,11 +182,13 @@
             "Choices": [
                 {
                     "Text": "You take out your wallet and prepare sacrifice your money like Abraham did his son.",
-                    "Target": "end"
+                    "Target": "end",
+                    "EnabledBy": "wallet"
                 },
                 {
                     "Text": "You take out your wallet and prepare sacrifice your money like Abraham did his son.",
-                    "Target": "foolend"
+                    "Target": "foolend",
+                    "DisabledBy": "wallet"
                 }
             ]
         },
